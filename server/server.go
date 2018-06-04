@@ -1,13 +1,13 @@
 package server
 
 import (
-	"time"
 	"net/http"
+	"time"
 
 	"github.com/Gin/interate-with-vue/collector"
-	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/static"
+	"github.com/gin-gonic/gin"
 )
 
 type Server struct {
@@ -20,7 +20,7 @@ func NewServer() *Server {
 
 	corsConfig := cors.DefaultConfig()
 	corsConfig.AllowAllOrigins = true
-	corsConfig.MaxAge = 5 * time.Minute 
+	corsConfig.MaxAge = 5 * time.Minute
 
 	r.Use(cors.New(corsConfig))
 	return &Server{
@@ -36,7 +36,7 @@ func (self *Server) GetData(c *gin.Context) {
 			http.StatusOK,
 			gin.H{
 				"success": false,
-				"reason": "error query data",
+				"reason":  "error query data",
 			},
 		)
 		return
@@ -45,7 +45,7 @@ func (self *Server) GetData(c *gin.Context) {
 		http.StatusOK,
 		gin.H{
 			"success": true,
-			"data": data,
+			"data":    data,
 		},
 	)
 }
@@ -55,6 +55,6 @@ func (self *Server) Run() {
 
 	api := self.r.Group("/api")
 	api.GET("/data", self.GetData)
-	
+
 	self.r.Run(":8001")
 }
