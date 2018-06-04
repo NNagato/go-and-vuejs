@@ -2,19 +2,24 @@
 <html>
 <head>
 	<title>Vuejs App</title>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.7.0/vue-resource.min.js"></script>
 </head>
 <body>
 	<div id="app">
 		<div>
 			{{ message }}
+			{{ todos[0].text }}
+			{{ apiData }}
 		</div>
 		<ol>
 			<todo-item v-for="(todo, index) in todos" v-bind:todo="todo" 
 				v-on:click="upcaseData(index)">
 			</todo-item>
 		</ol>
+		<div>{{ apiData }}</div>
 	</div>
+	<script src="source/app.js"></script>
+	<!-- <script src="source/vue.js"></script> -->
 </body>
-<script src="source/vue.js"></script>
-<script src="source/app.js"></script>
 </html>

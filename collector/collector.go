@@ -1,8 +1,8 @@
 package collector
 
 import (
-	"time"
 	"net/http"
+	"time"
 )
 
 type Collector struct {
@@ -19,5 +19,5 @@ func NewCollector() *Collector {
 }
 
 func (self *Collector) GetData() (uint64, error) {
-	return 0, nil
+	return 1712, nil
 }
